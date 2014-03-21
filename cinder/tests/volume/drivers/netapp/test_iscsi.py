@@ -111,30 +111,7 @@ class NetAppiSCSICModeTestCase(test.TestCase):
         self.driver._get_lun_attr = mock.Mock(return_value={'Volume':
                                                             'fakeLUN'})
         self.driver.client.invoke_successfully = mock.Mock()
-        lun = ntapi.NaElement.create_node_with_children(
-            'lun-info',
-            **{'alignment': 'indeterminate',
-               'block-size': '512',
-               'comment': '',
-               'creation-timestamp': '1354536362',
-               'is-space-alloc-enabled': 'false',
-               'is-space-reservation-enabled': 'true',
-               'mapped': 'false',
-               'multiprotocol-type': 'linux',
-               'online': 'true',
-               'path': '/vol/fakeLUN/lun1',
-               'prefix-size': '0',
-               'qtree': '',
-               'read-only': 'false',
-               'serial-number': '2FfGI$APyN68',
-               'share-state': 'none',
-               'size': '20971520',
-               'size-used': '0',
-               'staging': 'false',
-               'suffix-size': '0',
-               'uuid': 'cec1f3d7-3d41-11e2-9cf4-123478563412',
-               'volume': 'fakeLUN',
-               'vserver': 'fake_vserver'})
+        lun = mock.MagicMock(spec=ntapi.NaElement)
         self.driver._get_lun_by_args = mock.Mock(return_value=[lun])
         self.driver._add_lun_to_table = mock.Mock()
         self.driver._update_stale_vols = mock.Mock()
@@ -149,30 +126,7 @@ class NetAppiSCSICModeTestCase(test.TestCase):
         self.driver._get_lun_attr = mock.Mock(return_value={'Volume':
                                                             'fakeLUN'})
         self.driver.client.invoke_successfully = mock.Mock()
-        lun = ntapi.NaElement.create_node_with_children(
-            'lun-info',
-            **{'alignment': 'indeterminate',
-               'block-size': '512',
-               'comment': '',
-               'creation-timestamp': '1354536362',
-               'is-space-alloc-enabled': 'false',
-               'is-space-reservation-enabled': 'true',
-               'mapped': 'false',
-               'multiprotocol-type': 'linux',
-               'online': 'true',
-               'path': '/vol/fakeLUN/lun1',
-               'prefix-size': '0',
-               'qtree': '',
-               'read-only': 'false',
-               'serial-number': '2FfGI$APyN68',
-               'share-state': 'none',
-               'size': '20971520',
-               'size-used': '0',
-               'staging': 'false',
-               'suffix-size': '0',
-               'uuid': 'cec1f3d7-3d41-11e2-9cf4-123478563412',
-               'volume': 'fakeLUN',
-               'vserver': 'fake_vserver'})
+        lun = mock.MagicMock(spec=ntapi.NaElement)
         self.driver._get_lun_by_args = mock.Mock(return_value=[lun])
         self.driver._add_lun_to_table = mock.Mock()
         self.driver._update_stale_vols = mock.Mock()
@@ -207,30 +161,7 @@ class NetAppiSCSI7ModeTestCase(test.TestCase):
                                                             '/vol/fake/lun1'})
         self.driver.client.invoke_successfully = mock.Mock(
             return_value=mock.MagicMock())
-        lun = ntapi.NaElement.create_node_with_children(
-            'lun-info',
-            **{'alignment': 'indeterminate',
-               'block-size': '512',
-               'comment': '',
-               'creation-timestamp': '1354536362',
-               'is-space-alloc-enabled': 'false',
-               'is-space-reservation-enabled': 'true',
-               'mapped': 'false',
-               'multiprotocol-type': 'linux',
-               'online': 'true',
-               'path': '/vol/fakeLUN/lun1',
-               'prefix-size': '0',
-               'qtree': '',
-               'read-only': 'false',
-               'serial-number': '2FfGI$APyN68',
-               'share-state': 'none',
-               'size': '20971520',
-               'size-used': '0',
-               'staging': 'false',
-               'suffix-size': '0',
-               'uuid': 'cec1f3d7-3d41-11e2-9cf4-123478563412',
-               'volume': 'fakeLUN',
-               'vserver': 'fake_vserver'})
+        lun = mock.MagicMock(spec=ntapi.NaElement)
         self.driver._get_lun_by_args = mock.Mock(return_value=[lun])
         self.driver._add_lun_to_table = mock.Mock()
         self.driver._update_stale_vols = mock.Mock()
@@ -250,30 +181,7 @@ class NetAppiSCSI7ModeTestCase(test.TestCase):
                                                             '/vol/fake/lun1'})
         self.driver.client.invoke_successfully = mock.Mock(
             return_value=mock.MagicMock())
-        lun = ntapi.NaElement.create_node_with_children(
-            'lun-info',
-            **{'alignment': 'indeterminate',
-               'block-size': '512',
-               'comment': '',
-               'creation-timestamp': '1354536362',
-               'is-space-alloc-enabled': 'false',
-               'is-space-reservation-enabled': 'true',
-               'mapped': 'false',
-               'multiprotocol-type': 'linux',
-               'online': 'true',
-               'path': '/vol/fakeLUN/lun1',
-               'prefix-size': '0',
-               'qtree': '',
-               'read-only': 'false',
-               'serial-number': '2FfGI$APyN68',
-               'share-state': 'none',
-               'size': '20971520',
-               'size-used': '0',
-               'staging': 'false',
-               'suffix-size': '0',
-               'uuid': 'cec1f3d7-3d41-11e2-9cf4-123478563412',
-               'volume': 'fakeLUN',
-               'vserver': 'fake_vserver'})
+        lun = mock.MagicMock(spec=ntapi.NaElement)
         self.driver._get_lun_by_args = mock.Mock(return_value=[lun])
         self.driver._add_lun_to_table = mock.Mock()
         self.driver._update_stale_vols = mock.Mock()

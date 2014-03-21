@@ -417,7 +417,7 @@ def refresh_cluster_stale_ssc(*args, **kwargs):
 
         @utils.synchronized(lock_pr)
         def refresh_stale_ssc():
-                stale_vols = backend._update_stale_vols(reset=True)
+                stale_vols = backend.filer.update_stale_vols(reset=True)
                 LOG.info(_('Running stale ssc refresh job for %(server)s'
                            ' and vserver %(vs)s')
                          % {'server': na_server, 'vs': vserver})
@@ -517,7 +517,7 @@ def refresh_cluster_ssc(backend, na_server, vserver, synchronous=False):
             LOG.warn(_('refresh stale ssc job in progress. Returning... '))
             return
     else:
-        if backend.stale_vols:
+        if backend.filer.stale_vols:
             if synchronous:
                 refresh_cluster_stale_ssc(backend, na_server, vserver)
             else:

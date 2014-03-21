@@ -688,7 +688,7 @@ class NetAppDirectNfsDriver (NetAppNFSDriver):
         if not isinstance(elem, NaElement):
             raise ValueError('Expects NaElement')
 
-    def _get_ontapi_version(self):
+    def get_ontapi_version(self):
         """Gets the supported ontapi version."""
         ontapi_version = NaElement('system-get-ontapi-version')
         res = self._client.invoke_successfully(ontapi_version, False)
@@ -731,7 +731,7 @@ class NetAppDirectCmodeNfsDriver (NetAppDirectNfsDriver):
         """Do the customized set up on client for cluster mode."""
         # Default values to run first api
         client.set_api_version(1, 15)
-        (major, minor) = self._get_ontapi_version()
+        (major, minor) = self.get_ontapi_version()
         client.set_api_version(major, minor)
         self.vserver = self.configuration.netapp_vserver
         self.ssc_vols = None
@@ -1288,7 +1288,7 @@ class NetAppDirect7modeNfsDriver (NetAppDirectNfsDriver):
 
     def _do_custom_setup(self, client):
         """Do the customized set up on client if any for 7 mode."""
-        (major, minor) = self._get_ontapi_version()
+        (major, minor) = self.get_ontapi_version()
         client.set_api_version(major, minor)
 
     def check_for_setup_error(self):
